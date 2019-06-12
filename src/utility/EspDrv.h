@@ -23,7 +23,7 @@ along with The Arduino WiFiEsp library.  If not, see
 #include "IPAddress.h"
 
 
-#include "RingBuffer.h"
+#include "RingBufferWiFi.h"
 
 
 
@@ -129,6 +129,14 @@ public:
      * param passphrase: Passphrase. Valid characters in a passphrase must be between ASCII 32-126 (decimal).
      */
     static bool wifiConnect(const char* ssid, const char* passphrase);
+
+    /* Start Wifi connection with passphrase and bssid
+     *
+     * param ssid: Pointer to the SSID string.
+     * param passphrase: Passphrase. Valid characters in a passphrase must be between ASCII 32-126 (decimal).
+     * param bssid: Mac Adress to a specific AP if multiple exists in the same area with identical SSID
+     */
+    static bool wifiConnect(const char* ssid, const char* passphrase, const char* bssid);
 
 
     /*
@@ -312,7 +320,7 @@ private:
 
 
 	// the ring buffer is used to search the tags in the stream
-	static RingBuffer ringBuf;
+	static RingBufferWiFi ringBuf;
 
 
 	//static int sendCmd(const char* cmd, int timeout=1000);

@@ -39,6 +39,7 @@ public:
   size_t print(const __FlashStringHelper *ifsh);
   size_t println(const __FlashStringHelper *ifsh);
 
+  void activateSSL();
 
   /*
   * Connect to the specified IP address and port. The return value indicates success or failure.
@@ -134,6 +135,8 @@ public:
 private:
 
   uint8_t _sock;     // connection id
+
+  bool sslActive = false;
 
   int connect(const char* host, uint16_t port, uint8_t protMode);
   

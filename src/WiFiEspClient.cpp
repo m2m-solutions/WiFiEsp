@@ -58,6 +58,11 @@ size_t WiFiEspClient::println(const __FlashStringHelper *ifsh)
 // Implementation of Client virtual methods
 ////////////////////////////////////////////////////////////////////////////////
 
+void WiFiEspClient::activateSSL() 
+{
+	sslActive = true;
+}
+
 int WiFiEspClient::connectSSL(const char* host, uint16_t port)
 {
 	return connect(host, port, SSL_MODE);
@@ -72,7 +77,10 @@ int WiFiEspClient::connectSSL(IPAddress ip, uint16_t port)
 
 int WiFiEspClient::connect(const char* host, uint16_t port)
 {
-    return connect(host, port, TCP_MODE);
+	if(sslActive)
+		return connect(host, port, SSL_MODE);
+	else
+    	return connect(host, port, TCP_MODE);
 }
 
 int WiFiEspClient::connect(IPAddress ip, uint16_t port)
@@ -80,7 +88,7 @@ int WiFiEspClient::connect(IPAddress ip, uint16_t port)
 	char s[16];
 	sprintf_P(s, PSTR("%d.%d.%d.%d"), ip[0], ip[1], ip[2], ip[3]);
 
-	return connect(s, port, TCP_MODE);
+	return connect(s, port);
 }
 
 /* Private method */

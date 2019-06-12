@@ -29,9 +29,12 @@ along with The Arduino WiFiEsp library.  If not, see
 // 4: DEBUG: errors, warnings, informational and debug
 
 #ifndef _ESPLOGLEVEL_
-#define _ESPLOGLEVEL_ 3
+#define _ESPLOGLEVEL_ 4
 #endif
 
+#if defined(__SAMD21G18A__)
+#define Serial SerialUSB
+#endif
 
 #define LOGERROR(x)    if(_ESPLOGLEVEL_>0) { Serial.print("[WiFiEsp] "); Serial.println(x); }
 #define LOGERROR1(x,y) if(_ESPLOGLEVEL_>2) { Serial.print("[WiFiEsp] "); Serial.print(x); Serial.print(" "); Serial.println(y); }
