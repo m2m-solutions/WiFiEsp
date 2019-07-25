@@ -1,6 +1,13 @@
+# Notes on fork:
+Fixed build errors with RingBuffer and others
+Only tested on ESP32
+Only tested as client using tcp and http.
+Updated so most of it uses these commands:
+https://www.espressif.com/sites/default/files/documentation/esp32_at_instruction_set_and_examples_en.pdf
+
 # WiFiEsp
 
-With an ESP8266 board, WiFiEsp library allows an Arduino board to connect to the internet.
+With an ESP32 board, WiFiEsp library allows an Arduino board to connect to the internet.
 It can serve as either a server accepting incoming connections or a client making outgoing ones.
 The WiFiEsp library is very similar to the Arduino [WiFi](http://www.arduino.cc/en/Reference/WiFi) and [Ethernet](http://www.arduino.cc/en/Reference/Ethernet) libraries, and many of the function calls are the same. 
 
