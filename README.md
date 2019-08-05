@@ -1,7 +1,10 @@
 # Notes on fork:
-Fixed build errors with RingBuffer and others
+Fixed build errors with RingBuffer and others.
+
 Only tested on ESP32
+
 Only tested as client using tcp and http.
+
 Updated so most of it uses these commands:
 https://www.espressif.com/sites/default/files/documentation/esp32_at_instruction_set_and_examples_en.pdf
 
